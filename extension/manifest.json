@@ -1,0 +1,26 @@
+	
+	{
+	
+		"manifest_version": 2,
+	
+		"name": "Time Tracker",
+		"description": "Time Tracker for zipbooks.com",
+		"version": "1.1",
+		
+		"icons": {
+			"128": "data/img/zipbooks.png"
+		},
+		
+		"browser_action": {
+			"default_icon": "data/img/zipbooks.png",
+			"default_title": "Open zipbooks Time Tracker",
+			"default_popup": "data/popup/popup.html"
+		},
+		
+		"permissions": [
+			"https://api.zipbooks.com/*",
+			"storage"
+		]
+
+	}
+	

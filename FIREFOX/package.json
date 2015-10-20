@@ -1,0 +1,16 @@
+{
+  "title": "zipbooks",
+  "name": "zipbooks",
+  "version": "0.0.1",
+  "description": "time tracker for zipbooks.com",
+  "main": "index.js",
+  "author": "Bash Vlas",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "permissions": {
+    "cross-domain-content": ["https://api.zipbooks.com/","https://api.zipbooks.com/v1/auth/login/"]
+  },
+  "license": "MIT"
+}

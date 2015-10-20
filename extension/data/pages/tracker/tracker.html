@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Template - Get Shit Done Kit by Creative Tim</title>
+    
+    <link href="../gsdk/bootstrap3/css/bootstrap.css" rel="stylesheet" />
+	<link href="../gsdk/assets/css/get-shit-done.css" rel="stylesheet" />  
+    <link href="../gsdk/assets/css/demo.css" rel="stylesheet" /> 
+    
+    <!--     Font Awesome     -->
+    <link href="../gsdk/bootstrap3/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+	
+	<!-- V-styles -->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+	<link href='selectize.css' rel='stylesheet' type='text/css'>
+	
+</head>
+
+<body>
+
+    <div class="main">
+	
+        <div class="container" >
+		
+			<style>
+			
+				body {
+					padding-bottom: 16px;
+					transition: all 0.2s ease;
+				}
+			
+				#dom_timer {
+				
+					margin-bottom: 16px;
+					border-bottom: 1px solid rgba( 0, 0, 0, 0.12 );
+					font-size: 50px;
+					text-align: center;
+					font-weight: 100;
+					font-family: 'Open Sans', sans-serif;
+					
+				}
+				
+				#dom_notify_good {
+				
+					display: none;
+					margin: 4px 0px;
+					padding: 10px 15px;
+					background-color: #33D38E;
+					color: white;
+					border-radius: 2px;
+				
+				}
+				
+				#dom_notify_bad {
+				
+					display: none;
+					margin: 4px 0px;
+					padding: 10px 15px;
+					background-color: #f05858;
+					color: white;
+					border-radius: 2px;
+				
+				}
+				
+				#dom_project_select + div {
+					display: inline-block;
+				}
+				
+				#dom_input_project_rate {
+					
+					position:relative;
+					display: inline-block;
+					
+					width: 0%;
+					height: 40px;
+					margin: 0px 0px 4px 1px;
+					padding: 6px 0px;
+					vertical-align: top;
+					
+					opacity: 0;
+				
+				}
+				
+				#dom_customer_select + div {
+					display: none;
+				}
+				
+				#dom_customer_creator {
+				
+					display: none;
+				
+				}
+				
+				#dom_note_textarea {
+					margin-bottom: 16px;
+					border-radius: 0px;
+				}
+				
+				input {
+					margin: 4px 0px;
+					border-radius: 0px !important;
+				}
+				
+				button {
+					margin: 0px 0px;
+					outline: none !important;
+				}
+				
+				#dom_button_submit, #dom_button_stop {
+					display: none;
+				}
+				
+				.selectize {
+				
+					margin: 8px 0px;
+				
+				}
+				
+				.form-group {
+					margin-bottom: 4px !important;
+				}
+				
+				.form-control {
+					margin: 0px;
+					font-size: 12px !important;
+					border-radius: 0px !important;
+				}
+				
+			</style>
+			
+			<div id = 'dom_timer' >
+			
+				0:00
+			
+			</div>
+			
+			<div id = 'dom_notify_bad' ></div>
+			
+			<div id = 'dom_notify_good' ></div>
+			
+			<select id = 'dom_project_select' class="form-control selectize" >
+				<option value="" selected="selected">Select or type project...</option>
+			</select>
+			
+			
+			
+			
+			<input style = 'display: none' id = 'dom_input_project_rate' class="form-control" name="email" type="text" placeholder = "Rate" title = 'The hourly rate you bill for this project.' >
+				
+				
+				
+				
+			<select id = 'dom_customer_select' class="form-control selectize" >
+				<option value="" selected="selected">Select or type customer...</option>
+			</select>
+			
+			
+			
+			
+			
+
+			
+			<div id = 'dom_customer_creator' >
+		
+				<div class="row">
+
+					<div class="col-md-4">
+						<div class="form-group">
+							<input class="form-control" name="email" type="text" id="dom_email" placeholder = 'Contact E-Mail' >
+						</div>
+					</div>
+
+				</div>
+					
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			<select id = 'dom_task_select' class="form-control selectize">
+				<option value="" selected="selected">Select or type task...</option>
+			</select>
+			
+
+			
+			<textarea id = 'dom_note_textarea' class="form-control" placeholder="Optional Notes" name="note" cols="30" rows="2"></textarea>
+            
+            <button id = 'dom_button_start' class="btn-sm btn btn-primary btn-round btn-block">Start Timer</button>
+            
+            <button style = 'margin-top: 0px;' id = 'dom_button_stop'class="btn-sm btn btn-default btn-round btn-block">Pause Timer</button>
+			
+            <button id = 'dom_button_submit' class="btn-sm btn btn-primary btn-fill btn-round btn-block">Submit Time</button>
+			
+			
+		</div>
+		
+    </div>
+	
+</body>
+
+    <script src="../gsdk/jquery/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="../gsdk/assets/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+
+	<script src="../gsdk/bootstrap3/js/bootstrap.js" type="text/javascript"></script>
+	<script src="../gsdk/assets/js/gsdk-checkbox.js"></script>
+	<script src="../gsdk/assets/js/gsdk-radio.js"></script>
+	<script src="../gsdk/assets/js/gsdk-bootstrapswitch.js"></script>
+	<script src="../gsdk/assets/js/get-shit-done.js"></script>
+	
+    <script src="../gsdk/assets/js/custom.js"></script>
+	
+	<!-- V-scripts -->
+
+	<script src = 'selectize.min.js' ></script>
+	<script src = 'tracker.js' ></script>
+	
+</html>

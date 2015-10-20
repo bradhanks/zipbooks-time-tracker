@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="https://app.zipbooks.com/assets/img/favicon.png">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>New Invoice ::   ZipBooks</title>
+
+		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+		<link href="https://app.zipbooks.com/bootstrap3/css/bootstrap.css" rel="stylesheet" />
+		<link href="https://app.zipbooks.com/assets/css/jasny-bootstrap-2.css" rel="stylesheet"/>
+		<link href="https://app.zipbooks.com/assets/css/gsdk.css" rel="stylesheet"/>
+		<link href="https://app.zipbooks.com/assets/css/responsive-tables.css" rel="stylesheet"/>
+		<link href="https://app.zipbooks.com/assets/css/selectize.css" rel="stylesheet"/>
+		<link href="https://app.zipbooks.com/assets/css/custom.css" rel="stylesheet"/>
+
+			<script src="//d2wy8f7a9ursnm.cloudfront.net/bugsnag-2.min.js" data-apikey="80365cb3d272c9fe0fa4c5b8d55a2ca5"></script>
+		
+		<!--     Fonts and icons     -->
+		<link rel="stylesheet" href="https://app.zipbooks.com/assets/css/font-awesome.min.css">
+		<script src="//use.typekit.net/ngw1bpe.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
+
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<link href="https://app.zipbooks.com/assets/css/ltie9.css" rel="stylesheet"/>
+		<![endif]-->
+
+		<link href="css/minisite_styles.css" rel="stylesheet"/>
+
+	</head>
+
+	<body class="with-nav">
+
+		<div class="main">
+		   
+
+			<div class = 'minisite_headline'><img src = 'headline.png' ></div>
+
+			<div class="container-fluid">
+				<div class="col-xs-12 no-margin-padding">
+					<div class="hr"></div>
+				</div>
+			</div>
+
+			<div class="container-fluid">
+
+				<div class="invoice-edit">
+
+
+					<div class="row">
+
+						<div class="col-sm-6">
+
+							<div class="form-group">
+
+								<label for="number" class="pull-left required">Invoice Number</label>
+								<input class="form-control text-left" placeholder="0001" name="number" type="text" id="number">
+								
+							</div>
+
+
+							<div class="form-group">
+								<input class="form-control datepicker text-left" name="date" type="text" placeholder = 'Date' >
+							</div>
+
+							<div class="form-group">
+								<input class="form-control text-left" placeholder="P.O. # (optional)" name="po_number" type="text">
+							</div>
+
+							<div class="form-group">
+								<input class="form-control text-left numbers-only percent" placeholder="Discount % (optional)" name="discount" type="text">
+							</div>
+
+						</div>
+
+						<div class="col-sm-6">
+								
+								<form method="POST" action="https://app.zipbooks.com/api/v1/invoices/logo/upload" accept-charset="UTF-8" class="dropzone" id="logoDropzone" style=""><input name="_token" type="hidden" value="PQh3vyIsiU7kPhNOcFLSKgLOyGmVpFqnlbosByWn">
+
+								<div class="fallback">
+									<input name="file" type="file" multiple />
+								</div>
+
+								</form>
+
+								<div class="invoice-logo text-right">
+									<div class="invoice-logo-img-container">
+															</div>
+									<a  style="display:none;"  class="remove-logo pull-right">Remove Logo</a>
+								</div>
+							
+						</div>
+
+					</div>
+				   
+					<div class="row">
+
+						<div class="col-sm-6">
+
+
+							<div class="new-customer-data" >
+								<div class="form-group">
+									<label for="customer_info" class="required">Customer Info</label>
+									<input class="form-control" placeholder="Customer Name (required)" name="new_customer_name" type="text">
+								</div>
+								<div class="form-group">
+									<input class="form-control" placeholder="Customer Email (required)" name="new_customer_email" type="text">
+								</div>
+								<div class="form-group-condensed">
+									<input class="form-control" placeholder="Address Line 1" name="new_customer_address_1" type="text">
+									<input class="form-control" placeholder="Address Line 2" name="new_customer_address_2" type="text">
+									<input class="form-control col-xs-4" id="newCustomerCity" placeholder="City" name="new_customer_city" type="text">
+									<input class="form-control col-xs-4" id="newCustomerState" placeholder="State" name="new_customer_state" type="text">
+									<input class="form-control col-xs-4" id="newCustomerPostalCode" placeholder="Postal Code" name="new_customer_postal_code" type="text">
+									<select class="form-control" id="newCustomerCountry" placeholder="Country" name="new_customer_country">
+									<option value="0">United States</option><option value="1">Afghanistan</option><option value="2">Aland Islands</option><option value="3">Albania</option><option value="4">Algeria</option><option value="5">American Samoa</option><option value="6">Andorra</option><option value="7">Angola</option><option value="8">Anguilla</option><option value="9">Antarctica</option><option value="10">Antigua</option><option value="11">Argentina</option><option value="12">Armenia</option><option value="13">Aruba</option><option value="14">Australia</option><option value="15">Austria</option><option value="16">Azerbaijan</option><option value="17">Bahamas</option><option value="18">Bahrain</option><option value="19">Bangladesh</option><option value="20">Barbados</option><option value="21">Barbuda</option><option value="22">Belarus</option><option value="23">Belgium</option><option value="24">Belize</option><option value="25">Benin</option><option value="26">Bermuda</option><option value="27">Bhutan</option><option value="28">Bolivia</option><option value="29">Bosnia</option><option value="30">Botswana</option><option value="31">Bouvet Island</option><option value="32">Brazil</option><option value="33">British Indian Ocean Trty.</option><option value="34">Brunei Darussalam</option><option value="35">Bulgaria</option><option value="36">Burkina Faso</option><option value="37">Burundi</option><option value="38">Caicos Islands</option><option value="39">Cambodia</option><option value="40">Cameroon</option><option value="41">Canada</option><option value="42">Cape Verde</option><option value="43">Cayman Islands</option><option value="44">Central African Republic</option><option value="45">Chad</option><option value="46">Chile</option><option value="47">China</option><option value="48">Christmas Island</option><option value="49">Cocos (Keeling) Islands</option><option value="50">Colombia</option><option value="51">Comoros</option><option value="52">Congo</option><option value="53">Congo, Democratic Republic of the</option><option value="54">Cook Islands</option><option value="55">Costa Rica</option><option value="56">Cote d&#039;Ivoire</option><option value="57">Croatia</option><option value="58">Cuba</option><option value="59">Cyprus</option><option value="60">Czech Republic</option><option value="61">Denmark</option><option value="62">Djibouti</option><option value="63">Dominica</option><option value="64">Dominican Republic</option><option value="65">Ecuador</option><option value="66">Egypt</option><option value="67">El Salvador</option><option value="68">Equatorial Guinea</option><option value="69">Eritrea</option><option value="70">Estonia</option><option value="71">Ethiopia</option><option value="72">Falkland Islands (Malvinas)</option><option value="73">Faroe Islands</option><option value="74">Fiji</option><option value="75">Finland</option><option value="76">France</option><option value="77">French Guiana</option><option value="78">French Polynesia</option><option value="79">French Southern Territories</option><option value="80">Futuna Islands</option><option value="81">Gabon</option><option value="82">Gambia</option><option value="83">Georgia</option><option value="84">Germany</option><option value="85">Ghana</option><option value="86">Gibraltar</option><option value="87">Greece</option><option value="88">Greenland</option><option value="89">Grenada</option><option value="90">Guadeloupe</option><option value="91">Guam</option><option value="92">Guatemala</option><option value="93">Guernsey</option><option value="94">Guinea</option><option value="95">Guinea-Bissau</option><option value="96">Guyana</option><option value="97">Haiti</option><option value="98">Heard</option><option value="99">Herzegovina</option><option value="100">Holy See</option><option value="101">Honduras</option><option value="102">Hong Kong</option><option value="103">Hungary</option><option value="104">Iceland</option><option value="105">India</option><option value="106">Indonesia</option><option value="107">Iran (Islamic Republic of)</option><option value="108">Iraq</option><option value="109">Ireland</option><option value="110">Isle of Man</option><option value="111">Israel</option><option value="112">Italy</option><option value="113">Jamaica</option><option value="114">Jan Mayen Islands</option><option value="115">Japan</option><option value="116">Jersey</option><option value="117">Jordan</option><option value="118">Kazakhstan</option><option value="119">Kenya</option><option value="120">Kiribati</option><option value="121">Korea</option><option value="122">Korea (Democratic)</option><option value="123">Kuwait</option><option value="124">Kyrgyzstan</option><option value="125">Lao</option><option value="126">Latvia</option><option value="127">Lebanon</option><option value="128">Lesotho</option><option value="129">Liberia</option><option value="130">Libyan Arab Jamahiriya</option><option value="131">Liechtenstein</option><option value="132">Lithuania</option><option value="133">Luxembourg</option><option value="134">Macao</option><option value="135">Macedonia</option><option value="136">Madagascar</option><option value="137">Malawi</option><option value="138">Malaysia</option><option value="139">Maldives</option><option value="140">Mali</option><option value="141">Malta</option><option value="142">Marshall Islands</option><option value="143">Martinique</option><option value="144">Mauritania</option><option value="145">Mauritius</option><option value="146">Mayotte</option><option value="147">McDonald Islands</option><option value="148">Mexico</option><option value="149">Micronesia</option><option value="150">Miquelon</option><option value="151">Moldova</option><option value="152">Monaco</option><option value="153">Mongolia</option><option value="154">Montenegro</option><option value="155">Montserrat</option><option value="156">Morocco</option><option value="157">Mozambique</option><option value="158">Myanmar</option><option value="159">Namibia</option><option value="160">Nauru</option><option value="161">Nepal</option><option value="162">Netherlands</option><option value="163">Netherlands Antilles</option><option value="164">Nevis</option><option value="165">New Caledonia</option><option value="166">New Zealand</option><option value="167">Nicaragua</option><option value="168">Niger</option><option value="169">Nigeria</option><option value="170">Niue</option><option value="171">Norfolk Island</option><option value="172">Northern Mariana Islands</option><option value="173">Norway</option><option value="174">Oman</option><option value="175">Pakistan</option><option value="176">Palau</option><option value="177">Palestinian Territory, Occupied</option><option value="178">Panama</option><option value="179">Papua New Guinea</option><option value="180">Paraguay</option><option value="181">Peru</option><option value="182">Philippines</option><option value="183">Pitcairn</option><option value="184">Poland</option><option value="185">Portugal</option><option value="186">Principe</option><option value="187">Puerto Rico</option><option value="188">Qatar</option><option value="189">Reunion</option><option value="190">Romania</option><option value="191">Russian Federation</option><option value="192">Rwanda</option><option value="193">Saint Barthelemy</option><option value="194">Saint Helena</option><option value="195">Saint Kitts</option><option value="196">Saint Lucia</option><option value="197">Saint Martin (French part)</option><option value="198">Saint Pierre</option><option value="199">Saint Vincent</option><option value="200">Samoa</option><option value="201">San Marino</option><option value="202">Sao Tome</option><option value="203">Saudi Arabia</option><option value="204">Senegal</option><option value="205">Serbia</option><option value="206">Seychelles</option><option value="207">Sierra Leone</option><option value="208">Singapore</option><option value="209">Slovakia</option><option value="210">Slovenia</option><option value="211">Solomon Islands</option><option value="212">Somalia</option><option value="213">South Africa</option><option value="214">South Georgia</option><option value="215">South Sandwich Islands</option><option value="216">Spain</option><option value="217">Sri Lanka</option><option value="218">Sudan</option><option value="219">Suriname</option><option value="220">Svalbard</option><option value="221">Swaziland</option><option value="222">Sweden</option><option value="223">Switzerland</option><option value="224">Syrian Arab Republic</option><option value="225">Taiwan</option><option value="226">Tajikistan</option><option value="227">Tanzania</option><option value="228">Thailand</option><option value="229">The Grenadines</option><option value="230">Timor-Leste</option><option value="231">Tobago</option><option value="232">Togo</option><option value="233">Tokelau</option><option value="234">Tonga</option><option value="235">Trinidad</option><option value="236">Tunisia</option><option value="237">Turkey</option><option value="238">Turkmenistan</option><option value="239">Turks Islands</option><option value="240">Tuvalu</option><option value="241">Uganda</option><option value="242">Ukraine</option><option value="243">United Arab Emirates</option><option value="244">United Kingdom</option><option value="245">Uruguay</option><option value="246">US Minor Outlying Islands</option><option value="247">Uzbekistan</option><option value="248">Vanuatu</option><option value="249">Vatican City State</option><option value="250">Venezuela</option><option value="251">Vietnam</option><option value="252">Virgin Islands (British)</option><option value="253">Virgin Islands (US)</option><option value="254">Wallis</option><option value="255">Western Sahara</option><option value="256">Yemen</option><option value="257">Zambia</option><option value="258">Zimbabwe</option></select>
+								</div>
+
+							</div>
+
+
+							<p>
+								<span id="customerAddress"></span><br />
+								<span id="customerCity"></span>
+								<span id="customerState"></span>
+								<span id="customerPostalCode"></span>
+							</p>
+
+							<div id="unbilledNotice">
+
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+
+
+							<div class="new-customer-data" >
+								<div class="form-group">
+									<label for="user_info" class="required">Your Info</label>
+									<input class="form-control" placeholder="Email (required)" name="new_user_email" type="text">
+								</div>
+								<div class="form-group-condensed">
+									<input class="form-control" placeholder="Address Line 1" name="new_user_address_1" type="text">
+									<input class="form-control" placeholder="Address Line 2" name="new_user_address_2" type="text">
+									<input class="form-control col-xs-4" id="newCustomerCity" placeholder="City" name="new_user_city" type="text">
+									<input class="form-control col-xs-4" id="newCustomerState" placeholder="State" name="new_user_state" type="text">
+									<input class="form-control col-xs-4" id="newCustomerPostalCode" placeholder="Postal Code" name="new_user_postal_code" type="text">
+									<select class="form-control" id="newCustomerCountry" placeholder="Country" name="new_user_country">
+									<option value="0">United States</option><option value="1">Afghanistan</option><option value="2">Aland Islands</option><option value="3">Albania</option><option value="4">Algeria</option><option value="5">American Samoa</option><option value="6">Andorra</option><option value="7">Angola</option><option value="8">Anguilla</option><option value="9">Antarctica</option><option value="10">Antigua</option><option value="11">Argentina</option><option value="12">Armenia</option><option value="13">Aruba</option><option value="14">Australia</option><option value="15">Austria</option><option value="16">Azerbaijan</option><option value="17">Bahamas</option><option value="18">Bahrain</option><option value="19">Bangladesh</option><option value="20">Barbados</option><option value="21">Barbuda</option><option value="22">Belarus</option><option value="23">Belgium</option><option value="24">Belize</option><option value="25">Benin</option><option value="26">Bermuda</option><option value="27">Bhutan</option><option value="28">Bolivia</option><option value="29">Bosnia</option><option value="30">Botswana</option><option value="31">Bouvet Island</option><option value="32">Brazil</option><option value="33">British Indian Ocean Trty.</option><option value="34">Brunei Darussalam</option><option value="35">Bulgaria</option><option value="36">Burkina Faso</option><option value="37">Burundi</option><option value="38">Caicos Islands</option><option value="39">Cambodia</option><option value="40">Cameroon</option><option value="41">Canada</option><option value="42">Cape Verde</option><option value="43">Cayman Islands</option><option value="44">Central African Republic</option><option value="45">Chad</option><option value="46">Chile</option><option value="47">China</option><option value="48">Christmas Island</option><option value="49">Cocos (Keeling) Islands</option><option value="50">Colombia</option><option value="51">Comoros</option><option value="52">Congo</option><option value="53">Congo, Democratic Republic of the</option><option value="54">Cook Islands</option><option value="55">Costa Rica</option><option value="56">Cote d&#039;Ivoire</option><option value="57">Croatia</option><option value="58">Cuba</option><option value="59">Cyprus</option><option value="60">Czech Republic</option><option value="61">Denmark</option><option value="62">Djibouti</option><option value="63">Dominica</option><option value="64">Dominican Republic</option><option value="65">Ecuador</option><option value="66">Egypt</option><option value="67">El Salvador</option><option value="68">Equatorial Guinea</option><option value="69">Eritrea</option><option value="70">Estonia</option><option value="71">Ethiopia</option><option value="72">Falkland Islands (Malvinas)</option><option value="73">Faroe Islands</option><option value="74">Fiji</option><option value="75">Finland</option><option value="76">France</option><option value="77">French Guiana</option><option value="78">French Polynesia</option><option value="79">French Southern Territories</option><option value="80">Futuna Islands</option><option value="81">Gabon</option><option value="82">Gambia</option><option value="83">Georgia</option><option value="84">Germany</option><option value="85">Ghana</option><option value="86">Gibraltar</option><option value="87">Greece</option><option value="88">Greenland</option><option value="89">Grenada</option><option value="90">Guadeloupe</option><option value="91">Guam</option><option value="92">Guatemala</option><option value="93">Guernsey</option><option value="94">Guinea</option><option value="95">Guinea-Bissau</option><option value="96">Guyana</option><option value="97">Haiti</option><option value="98">Heard</option><option value="99">Herzegovina</option><option value="100">Holy See</option><option value="101">Honduras</option><option value="102">Hong Kong</option><option value="103">Hungary</option><option value="104">Iceland</option><option value="105">India</option><option value="106">Indonesia</option><option value="107">Iran (Islamic Republic of)</option><option value="108">Iraq</option><option value="109">Ireland</option><option value="110">Isle of Man</option><option value="111">Israel</option><option value="112">Italy</option><option value="113">Jamaica</option><option value="114">Jan Mayen Islands</option><option value="115">Japan</option><option value="116">Jersey</option><option value="117">Jordan</option><option value="118">Kazakhstan</option><option value="119">Kenya</option><option value="120">Kiribati</option><option value="121">Korea</option><option value="122">Korea (Democratic)</option><option value="123">Kuwait</option><option value="124">Kyrgyzstan</option><option value="125">Lao</option><option value="126">Latvia</option><option value="127">Lebanon</option><option value="128">Lesotho</option><option value="129">Liberia</option><option value="130">Libyan Arab Jamahiriya</option><option value="131">Liechtenstein</option><option value="132">Lithuania</option><option value="133">Luxembourg</option><option value="134">Macao</option><option value="135">Macedonia</option><option value="136">Madagascar</option><option value="137">Malawi</option><option value="138">Malaysia</option><option value="139">Maldives</option><option value="140">Mali</option><option value="141">Malta</option><option value="142">Marshall Islands</option><option value="143">Martinique</option><option value="144">Mauritania</option><option value="145">Mauritius</option><option value="146">Mayotte</option><option value="147">McDonald Islands</option><option value="148">Mexico</option><option value="149">Micronesia</option><option value="150">Miquelon</option><option value="151">Moldova</option><option value="152">Monaco</option><option value="153">Mongolia</option><option value="154">Montenegro</option><option value="155">Montserrat</option><option value="156">Morocco</option><option value="157">Mozambique</option><option value="158">Myanmar</option><option value="159">Namibia</option><option value="160">Nauru</option><option value="161">Nepal</option><option value="162">Netherlands</option><option value="163">Netherlands Antilles</option><option value="164">Nevis</option><option value="165">New Caledonia</option><option value="166">New Zealand</option><option value="167">Nicaragua</option><option value="168">Niger</option><option value="169">Nigeria</option><option value="170">Niue</option><option value="171">Norfolk Island</option><option value="172">Northern Mariana Islands</option><option value="173">Norway</option><option value="174">Oman</option><option value="175">Pakistan</option><option value="176">Palau</option><option value="177">Palestinian Territory, Occupied</option><option value="178">Panama</option><option value="179">Papua New Guinea</option><option value="180">Paraguay</option><option value="181">Peru</option><option value="182">Philippines</option><option value="183">Pitcairn</option><option value="184">Poland</option><option value="185">Portugal</option><option value="186">Principe</option><option value="187">Puerto Rico</option><option value="188">Qatar</option><option value="189">Reunion</option><option value="190">Romania</option><option value="191">Russian Federation</option><option value="192">Rwanda</option><option value="193">Saint Barthelemy</option><option value="194">Saint Helena</option><option value="195">Saint Kitts</option><option value="196">Saint Lucia</option><option value="197">Saint Martin (French part)</option><option value="198">Saint Pierre</option><option value="199">Saint Vincent</option><option value="200">Samoa</option><option value="201">San Marino</option><option value="202">Sao Tome</option><option value="203">Saudi Arabia</option><option value="204">Senegal</option><option value="205">Serbia</option><option value="206">Seychelles</option><option value="207">Sierra Leone</option><option value="208">Singapore</option><option value="209">Slovakia</option><option value="210">Slovenia</option><option value="211">Solomon Islands</option><option value="212">Somalia</option><option value="213">South Africa</option><option value="214">South Georgia</option><option value="215">South Sandwich Islands</option><option value="216">Spain</option><option value="217">Sri Lanka</option><option value="218">Sudan</option><option value="219">Suriname</option><option value="220">Svalbard</option><option value="221">Swaziland</option><option value="222">Sweden</option><option value="223">Switzerland</option><option value="224">Syrian Arab Republic</option><option value="225">Taiwan</option><option value="226">Tajikistan</option><option value="227">Tanzania</option><option value="228">Thailand</option><option value="229">The Grenadines</option><option value="230">Timor-Leste</option><option value="231">Tobago</option><option value="232">Togo</option><option value="233">Tokelau</option><option value="234">Tonga</option><option value="235">Trinidad</option><option value="236">Tunisia</option><option value="237">Turkey</option><option value="238">Turkmenistan</option><option value="239">Turks Islands</option><option value="240">Tuvalu</option><option value="241">Uganda</option><option value="242">Ukraine</option><option value="243">United Arab Emirates</option><option value="244">United Kingdom</option><option value="245">Uruguay</option><option value="246">US Minor Outlying Islands</option><option value="247">Uzbekistan</option><option value="248">Vanuatu</option><option value="249">Vatican City State</option><option value="250">Venezuela</option><option value="251">Vietnam</option><option value="252">Virgin Islands (British)</option><option value="253">Virgin Islands (US)</option><option value="254">Wallis</option><option value="255">Western Sahara</option><option value="256">Yemen</option><option value="257">Zambia</option><option value="258">Zimbabwe</option></select>
+								</div>
+
+							</div>
+
+
+							<p>
+								<span id="customerAddress"></span><br />
+								<span id="customerCity"></span>
+								<span id="customerState"></span>
+								<span id="customerPostalCode"></span>
+							</p>
+
+							<div id="unbilledNotice">
+
+							</div>
+						</div>
+
+					</div>
+		
+					<div class="row">
+
+						<div class="col-sm-12 table-responsive invoice-line-items ">
+
+							
+							<table class="table time-entries">
+
+								<thead>
+								<tr>
+									<th class="task-cell">Task</th>
+									<th class="notes-cell">Notes</th>
+									<th class="rate-cell">Rate</th>
+									<th class="hours-cell">Hours</th>
+									<th class="line-total-cell text-right">Line Total</th>
+									<th class="actions-cell"></th>
+
+								</tr>
+								</thead>
+
+								<tbody>
+
+								
+									<tr class="line-item time-entry grabbable" data-line-id="0">
+										<td class="task-cell">
+											<textarea class="form-control" name="lineItems[0][name]" cols="50" rows="10"></textarea>
+										</td>
+										<td class="notes-cell">
+											<textarea class="form-control" name="lineItems[0][notes]" cols="50" rows="10"></textarea>
+										</td>
+										<td class="rate-cell">
+											<input class="form-control rate numbers-only" name="lineItems[0][rate]" type="text">
+										</td>
+										<td class="hours-cell">
+											<input class="form-control quantity numbers-only" name="lineItems[0][quantity]" type="text">
+										</td>
+										<td class="line-total-cell">
+											<input class="form-control text-right" name="lineItems[0][line-total]" type="text" value="">
+											<input name="lineItems[0][type]" type="hidden" value="time-entry">
+										</td>
+										<td class="actions-cell">
+
+											<i class="fa fa-unsorted grabbable"></i><i class="fa fa-trash delete-button pointer"></i>
+																			</td>
+
+									</tr>
+
+
+														</tbody>
+
+							</table>
+
+							<a id="addTimeEntry" class="btn btn-primary btn-round btn-fill btn-mini btn-add-line-item">
+								<i class="fa mini fa-plus-circle"></i>
+								Task
+							</a>
+
+							<table class="table items">
+
+								<thead>
+									<tr>
+										<th class="task-cell">Item</th>
+										<th class="notes-cell">Description</th>
+										<th class="rate-cell">Price</th>
+										<th class="hours-cell">Quantity</th>
+										<th class="line-total-cell text-right">Line Total</th>
+										<th class="actions-cell"></th>
+
+									</tr>
+								</thead>
+
+								<tbody>
+
+								
+									<tr class="line-item item" data-line-id="2000000">
+										<td class="task-cell">
+											<textarea class="form-control" name="lineItems[2000000][name]" cols="50" rows="10"></textarea>
+										</td>
+										<td class="notes-cell">
+											<textarea class="form-control" name="lineItems[2000000][notes]" cols="50" rows="10"></textarea>
+										</td>
+										<td class="rate-cell">
+											<input class="form-control rate numbers-only" name="lineItems[2000000][rate]" type="text">
+										</td>
+										<td class="hours-cell">
+											<input class="form-control quantity numbers-only" name="lineItems[2000000][quantity]" type="text">
+										</td>
+										<td class="line-total-cell">
+											<input class="form-control text-right" name="lineItems[2000000][line-total]" type="text" value="">
+											<input name="lineItems[2000000][type]" type="hidden" value="item">
+										</td>
+										<td class="actions-cell">
+											<i class="fa fa-unsorted grabbable"></i><i class="fa fa-trash delete-button pointer"></i>
+																			</td>
+
+
+									</tr>
+
+								
+								</tbody>
+
+							</table>
+
+
+						</div>
+
+					</div>
+
+					<div class="row">
+						<div class="col-md-7">
+
+							<a id="addItem" class="btn btn-primary btn-round btn-fill btn-mini btn-add-line-item">
+								<i class="fa mini fa-plus-circle no-margin-padding"></i>
+								Item
+							</a>
+
+							<br /><br />
+						</div>
+						<div class="col-md-5">
+							<table class="table" id="invoiceTotalTable">
+
+									<tr class="subtotal-row"  style="display: none" >
+										<td class="text-right">Subtotal:</td>
+										<td class="text-right subtotal"></td>
+									</tr>
+									<tr class="discount-row"  style="display: none" >
+										<td class="text-right">Discount:</td>
+										<td class="text-right discount"></td>
+									</tr>
+
+								<tr class="total-row">
+									<td class="text-right">Invoice Total:</td>
+									<td class="text-right total">
+																			&#36;0.00
+																	</td>
+								</tr>
+							</table>
+
+						</div>
+					</div>
+
+					<div class="row">
+
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="terms">Terms</label>
+								<textarea class="form-control" placeholder="For example, &quot;Due upon receipt,&quot; or &quot;Net 30.&quot;" name="terms" cols="30" rows="3" id="terms"></textarea>
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="notes">Notes</label>
+								<textarea class="form-control" placeholder="Notes visible to customer." name="notes" cols="30" rows="3" id="notes"></textarea>
+							</div>
+						</div>
+
+					</div>
+
+					
+					<br>
+
+					
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<button id = 'minisite_send_invoice' class="btn btn-primary btn-fill btn-round">Send Invoice</button>
+							</div>
+						</div>
+					</div>
+
+
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+		<div class="col-md-12 footer">
+			<p class="text-center">
+				&copy ZipBooks 2015
+			</p>
+		</div>
+
+	</body>
+
+
+<script src="https://app.zipbooks.com/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="https://app.zipbooks.com/assets/js/jquery-ui-1.11.4.custom.min.js" type="text/javascript"></script>
+<script src="https://app.zipbooks.com/bootstrap3/js/bootstrap.js" type="text/javascript"></script>
+
+<!--  Plugins -->
+<script src="https://app.zipbooks.com/assets/js/gsdk-checkbox.js"></script>
+<script src="https://app.zipbooks.com/assets/js/gsdk-morphing.js"></script>
+<script src="https://app.zipbooks.com/assets/js/gsdk-radio.js"></script>
+<script src="https://app.zipbooks.com/assets/js/gsdk-bootstrapswitch.js"></script>
+<script src="https://app.zipbooks.com/assets/js/bootstrap-select.js"></script>
+<script src="https://app.zipbooks.com/assets/js/bootstrap-datepicker.js"></script>
+<script src="https://app.zipbooks.com/assets/js/get-shit-done.js"></script>
+<script src="https://app.zipbooks.com/assets/js/jquery.mask.min.js"></script>
+<script src="https://app.zipbooks.com/assets/js/jasny-bootstrap.min.js"></script> <!-- handles rowlink, input mask, off canvas nav -->
+<script src="https://app.zipbooks.com/assets/js/responsive-tables.js"></script>
+<script src="https://app.zipbooks.com/assets/js/chart.min.js"></script>
+<script src="https://app.zipbooks.com/assets/js/selectize.min.js"></script>
+<script src="https://app.zipbooks.com/assets/js/custom/shared.js"></script>
+
+
+    <link href="https://app.zipbooks.com/assets/css/dropzone.css" rel="stylesheet"/>
+    <link href="https://app.zipbooks.com/assets/css/selectize.css" rel="stylesheet"/>
+
+    <script src="https://app.zipbooks.com/assets/js/jquery.autosize.min.js"></script>
+    <script src="https://app.zipbooks.com/assets/js/dropzone.js"></script>
+
+    <script>
+        var currencyCodeHtml = '&#36;';
+    </script>
+
+    <script src="js/create_update.js"></script>
+    <script src="js/minisite_script.js" ></script>
+
+
+    <!--[if lt IE 9]><script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.0.8/es5-shim.min.js"></script><![endif]-->
+
+
+</html>
