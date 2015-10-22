@@ -17,6 +17,13 @@
 			"default_popup": "data/popup/popup.html"
 		},
 		
+		"content_scripts": [
+			{
+				"matches": [ "https://app.asana.com/*" ],
+				"js": [ "/data/js/V.js", "/data/content/content.js" ]
+			}
+		],
+		
 		"permissions": [
 			"https://api.zipbooks.com/*",
 			"storage"
