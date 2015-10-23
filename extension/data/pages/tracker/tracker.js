@@ -814,29 +814,43 @@
 												
 												if ( projects[ 0 ] && tasks[ 0 ] && tasks[ 0 ].project_id == projects[ 0 ].id ) {
 												
-													obj.view.update_view({
-														'selected_project': {
-															id: projects[ 0 ].id,
-															name: page_data['project_name']
-														},
-														'selected_task': {
-															id: tasks[ 0 ].id,
-															name: page_data['task_name']
-														}
-													});
+													if ( page_data['project_name'] ) {
+														obj.view.update_view({
+															'selected_project': {
+																id: projects[ 0 ].id,
+																name: page_data['project_name']
+															}
+														});
+													};
+													
+													if ( page_data['task_name'] ) {
+														obj.view.update_view({
+															'selected_task': {
+																id: tasks[ 0 ].id,
+																name: page_data['task_name']
+															}
+														});
+													};
 													
 												} else {
 												
-													obj.view.update_view({
-														'selected_project': {
-															id: 'new_project',
-															name: page_data['project_name']
-														},
-														'selected_task': {
-															id: 'new_task',
-															name: page_data['task_name']
-														}
-													});
+													if ( page_data['project_name'] ) {
+														obj.view.update_view({
+															'selected_project': {
+																id: 'new_project',
+																name: page_data['project_name']
+															}
+														});
+													};
+												
+													if ( page_data['task_name'] ) {
+														obj.view.update_view({
+															'selected_task': {
+																id: 'new_task',
+																name: page_data['task_name']
+															}
+														});
+													};
 													
 												};
 												
