@@ -5,7 +5,7 @@
           <em:type>2</em:type>
           <em:bootstrap>true</em:bootstrap>
           <em:unpack>false</em:unpack>
-          <em:version>0.0.2</em:version>
+          <em:version>0.0.3</em:version>
           <em:name>zipbooks</em:name>
           <em:description>time tracker for zipbooks.com</em:description>
           <em:creator>Bash Vlas</em:creator>

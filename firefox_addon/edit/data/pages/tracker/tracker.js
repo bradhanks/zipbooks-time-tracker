@@ -111,7 +111,7 @@ $(document).ready(function(){
 	
 	function display_error ( text ) {
 	
-		dom_notify_bad.innerHTML = text;
+		$( dom_notify_bad ).text( text );
 		dom_notify_bad.style.display = 'block';
 		setTimeout( function () {
 			dom_notify_bad.style.display = 'none'
@@ -121,7 +121,7 @@ $(document).ready(function(){
 	
 	function display_success ( text ) {
 	
-		dom_notify_good.innerHTML = text;
+		$( dom_notify_good ).text( text );
 		dom_notify_good.style.display = 'block';
 		setTimeout( function () {
 			dom_notify_good.style.display = 'none'
@@ -168,7 +168,7 @@ $(document).ready(function(){
         var timeString = (hours>0) ? hours+':'+pad(minutes)+':'+seconds : minutes+':'+seconds;
 
         // Update timer
-        $('#dom_timer').html(timeString);
+        $('#dom_timer').text(timeString);
 
 	}
 
@@ -179,7 +179,7 @@ $(document).ready(function(){
         startTime = false;
         timerRunning = false;
         previousLength = 4;
-        $('#dom_timer').html('0:00');
+        $('#dom_timer').text('0:00');
         $('#dom_button_stop').hide();
         $('#dom_button_submit').hide();
         $('#dom_button_start').show();
@@ -223,7 +223,7 @@ $(document).ready(function(){
             var timeString = (hours>0) ? hours+':'+pad(minutes)+':'+seconds : minutes+':'+seconds;
 
             // Update timer
-            $('#dom_timer').html(timeString);
+            $('#dom_timer').text(timeString);
 
         }
 
