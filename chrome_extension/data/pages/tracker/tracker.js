@@ -166,7 +166,7 @@
 					data: {
 						'user_id': time_entry_data.user_id,
 						'task_id': time_entry_data.task_id,
-						'duration': time_entry_data.seconds,
+						'duration': time_entry_data.hours,
 						'note': time_entry_data.note
 					},
 					headers: {
@@ -695,7 +695,7 @@
 					{
 						user_id: obj.user_data.get_user_id(),
 						task_id: task_id,
-						seconds: Math.round( obj.timer.get_data().time / 1000 ),
+						hours: obj.timer.get_data().time / ( 1000 * 60 * 60 ),
 						note: obj.page_data.get('note')
 					},
 					function ( response ) {
