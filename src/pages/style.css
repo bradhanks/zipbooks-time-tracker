@@ -1,0 +1,44 @@
+
+	body {
+
+
+	}
+
+	#main_page {
+
+		width: 360px;
+		height: 440px;
+
+	}
+
+	#login_page, #progress_page {
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow-y: hidden;
+
+		width: 360px;
+		height: 120px;
+		padding: 40px 50px;
+
+		background: #0064FF;
+
+	}
+
+	textarea {
+
+		resize: none;
+
+	}
+
+	.time-tracker h1 {
+
+		text-align: left;
+		margin-left: 28px;
+
+	}
+
+	.auth_container {
+
+	}
