@@ -20,7 +20,7 @@
 			var full_minutes = total_full_minutes - full_hours * 60;
 			var full_seconds = total_full_seconds - total_full_minutes * 60;
 
-			return x.util.pad( full_hours ) + ":" + x.util.pad( full_minutes );
+			return full_hours + ":" + x.util.pad( full_minutes );
 
 		};
 
@@ -148,77 +148,7 @@
 
 		};
 
-
 		var pub = {
-			
-			get_user_data: function () {
-
-				return ( new Promise( function ( resolve ) {
-
-					chrome.cookies.get({
-
-						url: "https://app.zipbooks.com/",
-						name: "production-zb-token",
-
-					}, resolve );
-
-				}))
-				.then( function ( cookie ) {
-
-					if ( cookie ) {
-
-						return x.ajax({
-
-							method: "get_json",
-							url: "https://app.zipbooks.com/v2/users/me",
-							headers: {
-
-								accept: "application/json, text/javascript, */*; q=0.01",
-								authorization: "Bearer " + cookie.value,
-
-							}
-
-						}).then( function ( response ) {
-
-							if ( typeof response.errors === "undefined" ) {
-
-								return {
-
-									autorized: true,
-									token: cookie.value,
-									user_id: response.data.id,
-
-								};
-
-							} else {
-
-								return {
-
-									autorized: false,
-									token: null,
-									user_id: null,
-
-								};
-
-							};
-
-						});
-
-					} else {
-
-						return {
-
-							autorized: false,
-							token: null,
-							user_id: null,
-
-						};
-
-					};
-
-				});
-
-			},
 
 			submit_time: function ( data ) {
 
@@ -287,21 +217,11 @@
 
 			get_api_data: function () {
 
-				return ( new Promise( function ( resolve ) {
+				return new Promise( function ( resolve ) {
 
-					chrome.cookies.get({
+					if ( user_data.token ) {
 
-						url: "https://app.zipbooks.com/",
-						name: "production-zb-token",
-
-					}, resolve );
-
-				}))
-				.then( function ( cookie ) {
-
-					if ( cookie ) {
-
-						return Promise.all([
+						Promise.all([
 
 							x.ajax({
 
@@ -309,7 +229,7 @@
 								url: "https://app.zipbooks.com/v2/users/me",
 								headers: {
 
-									authorization: "Bearer " + cookie.value,
+									authorization: "Bearer " + user_data.token,
 
 								}
 
@@ -320,7 +240,7 @@
 								url: "https://app.zipbooks.com/v1/tasks",
 								headers: {
 									
-									authorization: "Bearer " + cookie.value,
+									authorization: "Bearer " + user_data.token,
 
 								}
 
@@ -330,22 +250,22 @@
 
 							if ( typeof response_arr[ 0 ].errors === "undefined" ) {
 
-								return {
+								resolve({
 
 									tasks: response_arr[ 1 ],
 									user_data: {
 										
 										autorized: true,
-										token: cookie.value,
+										token: user_data.token,
 										user_id: response_arr[ 0 ].data.id,
 										
 									},
 
-								};
+								});
 
 							} else {
 
-								return {
+								resolve({
 
 									tasks: null,
 									user_data: {
@@ -356,7 +276,7 @@
 
 									}
 
-								};
+								});
 
 							};
 
@@ -364,7 +284,7 @@
 
 					} else {
 
-						return {
+						resolve({
 
 							tasks: null,
 							user_data: {
@@ -375,7 +295,7 @@
 
 							}
 
-						};
+						});
 
 					};
 
@@ -395,6 +315,12 @@
 
 			},
 
+			set_token: function ( token ) {
+
+				user_data.token = token;
+
+			},
+
 		};
 
 		return pub;
@@ -407,4 +333,4 @@
 		x.bg_api.register( "storage", storage() );
 		x.bg_api.register( "api_manager", api_manager() );
 
-	} () )
+	} () );

@@ -176,6 +176,17 @@
 
 		};
 
+		$scope.project_input_blur = function () {
+
+			
+
+		};
+
+		$scope.task_input_blur = function () {
+
+
+		};
+
 		$scope.time_to_display = function ( time ) {
 
 			return x.conv( "general_conv", "time", "display", time );
@@ -229,13 +240,6 @@
 
 			var duration = Math.floor( $scope.timer_data.time / 60 );
 
-			x.bg_api.exec( "timer", "reset" ).then( function ( timer_data ) {
-
-				$scope.timer_data = timer_data;
-				$scope.$apply();
-
-			});
-
 			x.bg_api.exec( "api_manager", "submit_time", {
 
 				duration: duration,
@@ -256,6 +260,13 @@
 						$scope.$apply();
 
 					}, 1000 );
+
+					x.bg_api.exec( "timer", "reset" ).then( function ( timer_data ) {
+
+						$scope.timer_data = timer_data;
+						$scope.$apply();
+
+					});
 
 				} else {
 
@@ -307,18 +318,27 @@
 			var tasks = api_data.tasks;
 
 			$scope.user_data = user_data;
-			$scope.project_data_arr = x.conv( "general_conv", "tasks", "project_data_arr", tasks );
-			$scope.task_data_arr = x.conv( "general_conv", "tasks", "task_data_arr", tasks );
 
-			x.bg_api.exec( "storage", "get" ).then( function ( items ) {
+			if ( $scope.user_data.autorized ) {
 
-				$scope.selected_task_data = items[ "selected_task_data" ];
-				$scope.selected_project_data = items[ "selected_project_data" ];
-				$scope.notes = items[ "notes" ];
+				$scope.project_data_arr = x.conv( "general_conv", "tasks", "project_data_arr", tasks );
+				$scope.task_data_arr = x.conv( "general_conv", "tasks", "task_data_arr", tasks );
+
+				x.bg_api.exec( "storage", "get" ).then( function ( items ) {
+
+					$scope.selected_task_data = items[ "selected_task_data" ];
+					$scope.selected_project_data = items[ "selected_project_data" ];
+					$scope.notes = items[ "notes" ];
+
+					$scope.$apply();
+
+				});
+
+			} else {
 
 				$scope.$apply();
 
-			});
+			};
 
 		});
 
@@ -326,7 +346,7 @@
 
 	( function () {
 
-		x.conv.set_options({ debug: false });
+		x.conv.set_options({ debug: true });
 		x.conv.register( "general_conv", general_conv() );
 
 		var app = angular.module( "app", [] ); 

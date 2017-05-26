@@ -11,7 +11,6 @@
 </head>
 
 <body>
-	
 
 	<div id="root" class="ember-view" ng-controller = "main_ctrl" ng-click = "root_click()" >
 	
@@ -20,7 +19,7 @@
 			<div class="select m-t-2">
 				<div id="ember594" class="position-relative ember-view">
 					<div id="ember607" class="ember-view">
-						<input type="text" placeholder="Project" id="ember617" class="form-control up   ember-text-field ember-view" value = "{{ selected_project_data.project_name }}" ng-click = "project_input_click( $event )" >
+						<input ng-blur = "project_input_blur()" type="text" placeholder="Project" id="ember617" class="form-control up   ember-text-field ember-view" value = "{{ selected_project_data.project_name }}" ng-click = "project_input_click( $event )" >
 						<label class="label-inside  fadeHide"></label>
 						<ul class="autosuggest ng-hide" ng-show = "project_selector_active" >
 							<li id="ember808" class="autosuggest-item  ember-view" ng-repeat = "project_data in project_data_arr" ng-click = "select_project_data( project_data )" >
@@ -36,7 +35,7 @@
 			<div class="select mt5">
 				<div id="ember620" class="position-relative ember-view">
 					<div id="ember629" class="ember-view">
-						<input type="text" placeholder="Task" id="ember630" class="form-control up   ember-text-field ember-view" value = "{{ selected_task_data.task_name }}" ng-click = "task_input_click( $event )" >
+						<input ng-blur = "task_input_blur()" type="text" placeholder="Task" id="ember630" class="form-control up   ember-text-field ember-view" value = "{{ selected_task_data.task_name }}" ng-click = "task_input_click( $event )" >
 						<label class="label-inside  fadeHide"></label>
 						<ul class="autosuggest ng-hide" ng-show = "task_selector_active" >
 							<li id="ember808" class="autosuggest-item  ember-view" ng-repeat = "task_data in task_data_arr" ng-click = "select_task_data( task_data )" >
