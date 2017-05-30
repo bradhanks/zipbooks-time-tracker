@@ -238,7 +238,7 @@
 
 			$scope.state = "uploading_time_entry";
 
-			var duration = Math.floor( $scope.timer_data.time / 60 );
+			var duration = Math.floor( $scope.timer_data.time / 1000 );
 
 			x.bg_api.exec( "api_manager", "submit_time", {
 
@@ -346,7 +346,7 @@
 
 	( function () {
 
-		x.conv.set_options({ debug: true });
+		x.conv.set_options({ debug: false });
 		x.conv.register( "general_conv", general_conv() );
 
 		var app = angular.module( "app", [] ); 
